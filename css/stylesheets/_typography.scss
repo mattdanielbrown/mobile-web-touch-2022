@@ -1,0 +1,28 @@
+
+html {
+	font-size : 120%;
+}
+
+body {
+	font-size : 1em;
+}
+p {
+	font-size : 1em;
+	line-height : 1.5;
+	margin : 0 auto 1em;
+	
+}
+
+h1, h2, h3, h4, h5, h6 {
+	line-height : 1;
+	margin : 0 auto 1rem;
+	font-weight : 600;
+	display : block;
+	small {
+		font-size : smaller;
+		display : block;
+		font-weight : 500;
+		margin-top : 1rem;
+		letter-spacing : 1px;
+	}
+}

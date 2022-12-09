@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <title>Mobile Web Touch Features 2022 | Home</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -16,26 +16,70 @@
   <link rel="apple-touch-icon" href="icon.png">
   <!-- Place favicon.ico in the root directory -->
 
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
+  <!-- <link rel="stylesheet" href="css/normalize.css"> -->
+  <link rel="stylesheet" href="css/main.scss">
 
   <meta name="theme-color" content="#fafafa">
 </head>
 
 <body>
-
-  <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
+	
+	<!-- ————————————————————————————————————————————————————————————————————— -->
+	<!-- Skip-to-main-content Link 																						 -->
+	<!-- ————————————————————————————————————————————————————————————————————— -->
+	<a class="skip-link" href="#main" tabindex="1">Skip to main</a>
+	
+	<!-- ————————————————————————————————————————————————————————————————————— -->
+	<!-- Site/Page Navigation 																								 -->
+	<!-- ————————————————————————————————————————————————————————————————————— -->
+	<nav id="site-navigation" class="site-navigation">
+		<ul id="site-navigation-list" class="site-navigation-list">
+			<li><a href="index.html" aria-current="page">Home</a></li>
+			<li><a href="#">Link</a></li>
+			<li><a href="#">Link</a></li>
+			<li><a href="#">Link</a></li>
+		</ul>
+	</nav>
+	
+	<!-- ————————————————————————————————————————————————————————————————————— -->
+	<!-- Site/Page Header 																										 -->
+	<!-- ————————————————————————————————————————————————————————————————————— -->
+	<header>
+		<hgroup>
+			<h1>
+				Website Title
+				<small>Webpage Title</small>
+			</h1>
+		</hgroup>
+	</header>
+	
+	<!-- ————————————————————————————————————————————————————————————————————— -->
+	<!-- Main Page Content  																									 -->
+	<!-- ————————————————————————————————————————————————————————————————————— -->
+	<main id="main">
+		<section>
+			<h2>Section Title</h2>
+			<h3>Subsection Title</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+			   Exercitationem laudantium magnam maiores. Ad beatae, cumque dolorem eos
+			   eum facere incidunt itaque, nam odit optio, qui quos sapiente
+			   temporibus voluptas voluptatum.</p>
+		</section>
+	</main>
+	
+	<!-- ————————————————————————————————————————————————————————————————————— -->
+	<!-- Site/Page Footer 																										 -->
+	<!-- ————————————————————————————————————————————————————————————————————— -->
+	<footer>
+		<p>Copyright &copy; 2022. All Rights Reserved.</p>
+	</footer>
+	
+	<!-- ===================================================================== -->
+	<!-- Javascript	 																								 					 -->
+	<!-- ===================================================================== -->
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
-
-  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <script>
-    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
-  </script>
-  <script src="https://www.google-analytics.com/analytics.js" async></script>
 </body>
 
 </html>

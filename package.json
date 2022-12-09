@@ -1,10 +1,10 @@
 {
-  "name": " ",
+  "name": "mobile-web-touch-2022",
   "version": "0.0.1",
-  "description": "",
-  "keywords": "",
-  "license": "",
-  "author": "",
+  "description": "Mobile web touch basics (techniques) using HTML, (S)CSS, and JS.",
+  "license": "MIT",
+  "author": "Matt Daniel Brown",
+  "private": true,
   "scripts": {
     "build": "parcel build index.html",
     "dev": "parcel index.html --open",
@@ -12,6 +12,19 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "parcel-bundler": "^1.12.4"
+    "@parcel/packager-raw-url": "2.8.1",
+    "@parcel/transformer-sass": "2.8.1",
+    "@parcel/transformer-webmanifest": "2.8.1",
+    "parcel": "latest",
+    "postcss": "^8.4.19",
+    "sass": "^1.56.1"
+  },
+  "dependencies": {
+    "bourbon": "^7.2.0",
+    "inter-ui": "^3.19.3",
+    "mobi.css": "^3.1.1",
+    "modern-normalize": "^1.1.0",
+    "reseter.css": "^2.0.0",
+    "sanitize.css": "^13.0.0"
   }
 }
