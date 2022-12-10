@@ -4,30 +4,69 @@
 [tabindex='-1']:focus:not(:focus-visible) { outline : 0 !important; }
 
 
+%list-reset {
+	list-style      : none none;
+	margin          : unset;
+	padding         : unset;
+	display         : flex;
+	flex-direction  : column;
+	justify-content : flex-start;
+	width           : 100%;
+	transition      : all 200ms ease;
+	
+	* {
+		transition : all 200ms ease;
+	}
+	
+	li {
+		list-style      : none none;
+		margin          : unset;
+		padding         : unset;
+		display         : block;
+		width           : 100%;
+		margin          : 0 auto 1em;
+	}
+	
+	@media screen and (min-width : 560px) {
+		flex-direction  : row;
+		justify-content : space-between;
+		flex-wrap       : wrap;
+		gap             : 1em;
+		li {
+			display : inline-flex;
+			width   : auto;
+			margin  : 0 auto;
+		}
+	}
+}
 
-
-$primary-color             : #4100ff;
+$primary-color             : #5500FF;
 $secondary-color           : #404660;
 
 $default-button-color      : #e4e4e7;
 $default-button-text-color : darken(#e4e4e7, 50%);
 
-$color-adjustment--hover   : 8%;
-$color-adjustment--focus   : 16%;
-$color-adjustment--active  : 24%;
+$focus-fx-base-color       : $primary-color;
+$focus-fx-alpha            : 0.25;
+$focus-fx-color            : rgba($focus-fx-base-color, $focus-fx-alpha);
+$focus-fx-width            : 4px;
+$focus-fx-offset           : 2px;
+$focus-fx                  : solid $focus-fx-color $focus-fx-width;
 
-$hover-color-adjustment    : 8%;
-$focus-color-adjustment    : 16%;
-$active-color-adjustment   : 24%;
+$color-adjustment--hover   : 5%;
+$color-adjustment--focus   : 10%;
+$color-adjustment--active  : 15%;
+
+$hover-color-adjustment    : 5%;
+$focus-color-adjustment    : 10%;
+$active-color-adjustment   : 15%;
 
 @function hover-color($color:$primary-color) {
 	@return darken($color, $hover-color-adjustment);
 }
-
 @function focus-color($color:$primary-color) {
 	@return darken($color, $focus-color-adjustment);
 }
-
 @function active-color($color:$primary-color) {
 	@return darken($color, $active-color-adjustment);
 }
@@ -35,15 +74,12 @@ $active-color-adjustment   : 24%;
 @function hoverColor($color:$primary-color) {
 	@return darken($color, $hover-color-adjustment);
 }
-
 @function focusColor($color:$primary-color) {
 	@return darken($color, $focus-color-adjustment);
 }
-
 @function activeColor($color:$primary-color) {
 	@return darken($color, $active-color-adjustment);
 }
-
 
 %button-base {
 	
@@ -56,10 +92,12 @@ $active-color-adjustment   : 24%;
 	color                   : $_this-text-color;
 	border-color            : $_this-border-color;
 	
-	appearance              : none !important;
+	appearance                    : none                !important;
+	-webkit-tap-highlight-color   : rgba(0, 0, 0, 0.0)  !important;
+	-webkit-touch-callout         : none                !important;
 	font-size               : 1em;
 	line-height             : 1;
-	padding                 : .5em 0;
+	padding                 : .75em 0;
 	margin                  : 0 auto 1em;
 	user-select             : none;
 	border-radius           : .25em;
@@ -71,34 +109,96 @@ $active-color-adjustment   : 24%;
 	width                   : 100%;
 	border                  : none;
 	transform               : translate3d(0, 0, 0);
-	font-family             : -apple-system, BlinkMacSystemFont, 'Segoe UI',
-	system-ui, Roboto, Oxygen-Sans, Ubuntu, Cantarell,
-	'Helvetica Neue', sans-serif;
-	
 	touch-action            : manipulation;
-	
-	
+	font-family             : -apple-system,BlinkMacSystemFont,'Segoe UI',
+														system-ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,
+														'Helvetica Neue',sans-serif;
 	
 	@media screen and (min-width : 560px) {
 		display : inline-block;
 		width   : unset;
 		padding : .5em .75em;
 		margin  : 0 1em 1em 0;
+		line-height : 1.25;
+		min-width : 6.25em;
 	}
 	
 	&:hover {
-	
+		background-color : hover-color($_this-color);
 	}
 	&:focus {
-	
+		background-color  : focus-color($_this-color);
+		outline           : $focus-fx         !important;
+		outline-offset    : $focus-fx-offset  !important;
 	}
 	&:active {
-		transform : translate3d(0,2px,0);
+		background-color : active-color($_this-color);
+		transform : translate3d(0,2px,0) !important;
+	}
+}
+
+%primary-button {
+	$_this-color            : $primary-color;
+	$_this-background-color : $_this-color;
+	$_this-border-color     : $_this-color;
+	$_this-text-color       : white;
+	
+	background-color        : $_this-background-color;
+	color                   : $_this-text-color;
+	
+	&:hover {
+		background-color : hover-color($_this-background-color);
+	}
+	&:focus {
+		background-color : focus-color($_this-background-color);
+	}
+	&:active {
+		background-color : active-color($_this-background-color);
+	}
+}
+
+%secondary-button {
+	$_this-color            : $secondary-color;
+	$_this-background-color : $_this-color;
+	$_this-border-color     : $_this-color;
+	$_this-text-color       : white;
+	
+	background-color        : $_this-background-color;
+	color                   : $_this-text-color;
+	
+	&:hover {
+		background-color : hover-color($_this-background-color);
+	}
+	&:focus {
+		background-color : focus-color($_this-background-color);
+	}
+	&:active {
+		background-color : active-color($_this-background-color);
 	}
 }
 
 @mixin button($variant:default, $isRound:false, $isOutline:false, $icon:false) {
 	@extend %button-base;
+	
+	$_button-bg-color   : $default-button-color;
+	$_button-txt-color  : $default-button-text-color;
+	
+	@if($variant == primary) {
+		$_button-bg-color   : $primary-color;
+		$_button-txt-color  : white;
+		@extend %primary-button;
+	} @else if($variant == secondary) {
+		$_button-bg-color  : $secondary-color;
+		$_button-txt-color : white;
+		@extend %secondary-button;
+	}
+	
+	@if($isRound == true) { border-radius : 2em !important; }
+	
+	@if($isOutline == true) {
+	
+	}
+	
 }
 
 /* Button and Button-like Control Style Definition */
@@ -160,7 +260,30 @@ $active-color-adjustment   : 24%;
 } */
 
 /* Apply Button and Button-like Control Styles */
-button, .button,[role='button'],[type='button'],[type='reset'],[type='submit'] {
+button,.button,[role='button'],[type='button'],[type='reset'],[type='submit'] {
 	@include button();
 	
+	&.primary { @include button($variant:primary); }
+	
+	&.secondary { @include button($variant:secondary); }
+	
+	&.round,&.rounded { @include button($isRound:true); }
+}
+
+.button-list,.buttons-list,ul.buttons {
+	@extend %list-reset;
+	margin : 1em auto;
+	gap: 1.5em;
+	li { margin : 0 !important; }
+	button,.button,[role='button'],[type='button'],[type='reset'],[type='submit'] {
+		margin : 0 !important;
+	}
+	@media screen and (min-width: 560px) {
+		gap: .5em;
+	}
+}
+
+section {
+	padding : 1em 0;
+	margin-bottom : 2em;
 }
