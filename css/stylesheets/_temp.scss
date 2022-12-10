@@ -2,3 +2,165 @@
 
 /** @IMPORTANT : This is the `SKIP TO MAIN CONTENT` popup option for navigation with TAB key. **/
 [tabindex='-1']:focus:not(:focus-visible) { outline : 0 !important; }
+
+
+
+
+$primary-color             : #4100ff;
+$secondary-color           : #404660;
+
+$default-button-color      : #e4e4e7;
+$default-button-text-color : darken(#e4e4e7, 50%);
+
+$color-adjustment--hover   : 8%;
+$color-adjustment--focus   : 16%;
+$color-adjustment--active  : 24%;
+
+$hover-color-adjustment    : 8%;
+$focus-color-adjustment    : 16%;
+$active-color-adjustment   : 24%;
+
+@function hover-color($color:$primary-color) {
+	@return darken($color, $hover-color-adjustment);
+}
+
+@function focus-color($color:$primary-color) {
+	@return darken($color, $focus-color-adjustment);
+}
+
+@function active-color($color:$primary-color) {
+	@return darken($color, $active-color-adjustment);
+}
+
+@function hoverColor($color:$primary-color) {
+	@return darken($color, $hover-color-adjustment);
+}
+
+@function focusColor($color:$primary-color) {
+	@return darken($color, $focus-color-adjustment);
+}
+
+@function activeColor($color:$primary-color) {
+	@return darken($color, $active-color-adjustment);
+}
+
+
+%button-base {
+	
+	$_this-color            : $default-button-color;
+	$_this-background-color : $_this-color;
+	$_this-border-color     : $default-button-color;
+	$_this-text-color       : $default-button-text-color;
+	
+	background-color        : $_this-background-color;
+	color                   : $_this-text-color;
+	border-color            : $_this-border-color;
+	
+	appearance              : none !important;
+	font-size               : 1em;
+	line-height             : 1;
+	padding                 : .5em 0;
+	margin                  : 0 auto 1em;
+	user-select             : none;
+	border-radius           : .25em;
+	font-weight             : 600;
+	letter-spacing          : .5px;
+	cursor                  : pointer;
+	transition              : all 120ms ease-out;
+	display                 : block;
+	width                   : 100%;
+	border                  : none;
+	transform               : translate3d(0, 0, 0);
+	font-family             : -apple-system, BlinkMacSystemFont, 'Segoe UI',
+	system-ui, Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+	'Helvetica Neue', sans-serif;
+	
+	touch-action            : manipulation;
+	
+	
+	
+	@media screen and (min-width : 560px) {
+		display : inline-block;
+		width   : unset;
+		padding : .5em .75em;
+		margin  : 0 1em 1em 0;
+	}
+	
+	&:hover {
+	
+	}
+	&:focus {
+	
+	}
+	&:active {
+		transform : translate3d(0,2px,0);
+	}
+}
+
+@mixin button($variant:default, $isRound:false, $isOutline:false, $icon:false) {
+	@extend %button-base;
+}
+
+/* Button and Button-like Control Style Definition */
+/* %button {
+	$_this-color     : #efefef;
+	$_focus-fx-color : $color--primary;
+	// $_focus-fx-color:$primary-primary;
+	
+	appearance       : none;
+	vertical-align   : middle;
+	user-select      : none;
+	cursor           : pointer;
+	font-weight      : 600;
+	font-size        : 1em;
+	padding          : 0.5em 0.75em;
+	border-radius    : 0.25em;
+	// background-color: #EFEFEF;
+	// border: 2px solid #EFEFEF;
+	background-color : $_this-color;
+	border           : 2px solid $_this-color;
+	font-family      : inherit;
+	transform        : translate3d(0, 0, 0);
+	transition       : all 150ms ease;
+	
+	display          : block;
+	width            : 100%;
+	margin           : 0 0 1.5em;
+	line-height      : 1.25;
+	
+	@media screen and (min-width : 560px) {
+		line-height : 1;
+		display     : inline-block;
+		width       : unset;
+		min-width   : 6.5em;
+	}
+	
+	&:hover {
+		$_this-color     : darken($_this-color, 8%);
+		background-color : $_this-color;
+		border-color     : $_this-color;
+	}
+	
+	&:focus {
+		$_this-color     : darken($_this-color, 8%);
+		background-color : $_this-color;
+		// border-color: $_this-color;
+		// border-color: $primary-color;
+		border-color     : $color--primary;
+		outline          : 6px solid rgba($_focus-fx-color, 0.2);
+		outline-offset   : -2px;
+	}
+	
+	&:active {
+		$_this-color     : darken($_this-color, 8%);
+		background-color : $_this-color;
+		border-color     : $_this-color;
+		transform        : translate3d(0, 2px, 0);
+	}
+} */
+
+/* Apply Button and Button-like Control Styles */
+button, .button,[role='button'],[type='button'],[type='reset'],[type='submit'] {
+	@include button();
+	
+}
