@@ -17,7 +17,7 @@
     "@parcel/transformer-webmanifest": "2.8.1",
     "parcel": "latest",
     "postcss": "^8.4.19",
-    "sass": "^1.56.1"
+    "sass": "^1.90.0"
   },
   "dependencies": {
     "bourbon": "^7.2.0",
