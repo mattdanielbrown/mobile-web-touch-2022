@@ -15,7 +15,7 @@
     "@parcel/packager-raw-url": "2.8.1",
     "@parcel/transformer-sass": "2.8.1",
     "@parcel/transformer-webmanifest": "2.8.1",
-    "parcel": "latest",
+    "parcel": "2.15.4",
     "postcss": "^8.4.19",
     "sass": "^1.56.1"
   },
